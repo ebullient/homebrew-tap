@@ -19,11 +19,11 @@ class TtrpgConvertCli < Formula
     EOS
 
     bin.mkpath
-    File.write("#{bin}/ttrpg-convert-cli", bash)
+    File.write("#{bin}/ttrpg-convert", bash)
   end
 
   test do
-    output = shell_output("#{bin}/ttrpg-convert-cli --version")
+    output = shell_output("#{bin}/ttrpg-convert --version")
     assert_match "2.2.12", output
   end
 end
