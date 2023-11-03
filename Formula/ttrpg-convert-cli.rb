@@ -2,7 +2,7 @@
 class TtrpgConvertCli < Formula
   desc "Utility to convert 5eTools and Pf2eTools JSON data into Markdown"
   homepage "https://github.com/ebullient/ttrpg-convert-cli"
-  url "https://github.com/ebullient/ttrpg-convert-cli/releases/download/2.2.12/ttrpg-convert-cli-2.2.12-runner.jar", :using => :nounzip
+  url "https://github.com/ebullient/ttrpg-convert-cli/releases/download/2.2.12/ttrpg-convert-cli-2.2.12-runner.jar", using: :nounzip
   version "2.2.12"
   sha256 "a27d8789e9bb7c156dd3a25beeebc3be078883b1c711f9537417b16adf186807"
   license "Apache-2.0"
@@ -12,14 +12,14 @@ class TtrpgConvertCli < Formula
   def install
     libexec.install "ttrpg-convert-cli-2.2.12-runner.jar"
 
+    bash = <<~EOS
+      #!/bin/bash
+      export JAVA_HOME="#{Language::Java.overridable_java_home_env(nil)[:JAVA_HOME]}"
+      exec "${JAVA_HOME}/bin/java" -jar #{libexec}/ttrpg-convert-cli-2.2.12-runner.jar "$@"
+    EOS
+
     bin.mkpath
-    File.open("#{bin}/ttrpg-convert-cli", "w") do |f|
-      f.write <<~EOS
-        #!/bin/bash
-        export JAVA_HOME="#{Language::Java.overridable_java_home_env(nil)[:JAVA_HOME]}"
-        exec "${JAVA_HOME}/bin/java" -jar #{libexec}/ttrpg-convert-cli-2.2.12-runner.jar "$@"
-      EOS
-    end
+    File.write("#{bin}/ttrpg-convert-cli", bash)
   end
 
   test do
