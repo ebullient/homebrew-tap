@@ -2,19 +2,19 @@
 class TtrpgConvertCli < Formula
   desc "Utility to convert 5eTools and Pf2eTools JSON data into Markdown"
   homepage "https://github.com/ebullient/ttrpg-convert-cli"
-  url "https://github.com/ebullient/ttrpg-convert-cli/releases/download/2.3.6/ttrpg-convert-cli-2.3.6-runner.jar", using: :nounzip
-  version "2.3.6"
-  sha256 "bbcf96979c199fd80276dca34987bfd6dc401075fde50602d6ef01e5c87ee5e5"
+  url "https://github.com/ebullient/ttrpg-convert-cli/releases/download/2.3.8/ttrpg-convert-cli-2.3.8-runner.jar", using: :nounzip
+  version "2.3.8"
+  sha256 "493df3c96a78c37583df224e64341dd8b6d33e170164231866848e3aeb6c7753"
   license "Apache-2.0"
 
   depends_on "openjdk@17"
 
   def install
-    libexec.install "ttrpg-convert-cli-2.3.6-runner.jar"
+    libexec.install "ttrpg-convert-cli-2.3.8-runner.jar"
     bash = <<~EOS
       #!/bin/bash
       export JAVA_HOME="#{Language::Java.overridable_java_home_env(nil)[:JAVA_HOME]}"
-      exec "${JAVA_HOME}/bin/java" -jar #{libexec}/ttrpg-convert-cli-2.3.6-runner.jar "$@"
+      exec "${JAVA_HOME}/bin/java" -jar #{libexec}/ttrpg-convert-cli-2.3.8-runner.jar "$@"
     EOS
 
     bin.mkpath
@@ -23,6 +23,6 @@ class TtrpgConvertCli < Formula
 
   test do
     output = shell_output("#{bin}/ttrpg-convert --version")
-    assert_match "2.3.6", output
+    assert_match "2.3.8", output
   end
 end
