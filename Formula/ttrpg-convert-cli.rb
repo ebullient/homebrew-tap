@@ -1,22 +1,22 @@
-# Generated with JReleaser 1.17.0 at 2025-03-24T22:04:07.726683708Z
+# Generated with JReleaser 1.18.0 at 2025-05-05T16:31:36.246873534Z
 
 class TtrpgConvertCli < Formula
   desc "Utility to convert 5eTools and Pf2eTools JSON data into Markdown"
   homepage "https://github.com/ebullient/ttrpg-convert-cli"
-  version "3.0.3"
+  version "3.1.0"
   license "Apache-2.0"
 
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/ebullient/ttrpg-convert-cli/releases/download/3.0.3/ttrpg-convert-cli-3.0.3-linux-x86_64.zip"
-    sha256 "38665e6920f4b6a38006bf4007d0127a7f4492eac5d6687f34bb1a06afd6bb6f"
+    url "https://github.com/ebullient/ttrpg-convert-cli/releases/download/3.1.0/ttrpg-convert-cli-3.1.0-linux-x86_64.zip"
+    sha256 "4664020c4513b0ccd843812634e31a684b7ec3b62dcebb1507d439b1b10470cd"
   end
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/ebullient/ttrpg-convert-cli/releases/download/3.0.3/ttrpg-convert-cli-3.0.3-osx-aarch_64.zip"
-    sha256 "bbfa609e3a15705ce5a13aec346373edf1df3f0adf3aa7eaab4f45d1ba44c15d"
+    url "https://github.com/ebullient/ttrpg-convert-cli/releases/download/3.1.0/ttrpg-convert-cli-3.1.0-osx-aarch_64.zip"
+    sha256 "c61a2ca210587e8e18b9d3395029b2eafbabcbadcf6cdef2bdeb81ca5a4c467f"
   end
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/ebullient/ttrpg-convert-cli/releases/download/3.0.3/ttrpg-convert-cli-3.0.3-osx-x86_64.zip"
-    sha256 "50969bff7b898f30ef8fbcfae17eeb452db5a70156d57d64e3c8b3e61da71a5f"
+    url "https://github.com/ebullient/ttrpg-convert-cli/releases/download/3.1.0/ttrpg-convert-cli-3.1.0-osx-x86_64.zip"
+    sha256 "d0a153828c6c8a7110db173257c29babbe6978bda94bc70cf2b01b37fd0b911c"
   end
 
 
@@ -27,6 +27,6 @@ class TtrpgConvertCli < Formula
 
   test do
     output = shell_output("#{bin}/ttrpg-convert --version")
-    assert_match "3.0.3", output
+    assert_match "3.1.0", output
   end
 end
